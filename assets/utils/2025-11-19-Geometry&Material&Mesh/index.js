@@ -341,4 +341,21 @@ function createMaterial() {
 
   meshes.push(new THREE.LineSegments(geometry, material));
 }
+
+{
+  const radius = 7;
+  const widthSegments = 12;
+  const heightSegments = 8;
+  const geometry = new THREE.SphereGeometry(
+    radius,
+    widthSegments,
+    heightSegments
+  );
+  const material = new THREE.PointsMaterial({
+    color: 'red',
+    sizeAttenuation: false,
+    size: 3,
+  });
+  meshes.push(new THREE.Points(geometry, material));
+}
 export { meshes };
