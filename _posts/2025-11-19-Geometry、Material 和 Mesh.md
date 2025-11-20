@@ -60,42 +60,42 @@ mesh 在 threejs 中代表网格对象，是 geometry 和 material 的结合体�
 
 <script type="module">
   import * as THREE from "three";
-  import {meshes} from "/assets/utils/2025-11-19-Geometry&Material&Mesh/index.js"
+  import {meshes} from "/assets/utils/2025-11-19-Geometry&Material&Mesh/index.js";
   const canvas = document.getElementById("c");
   const renderer = new THREE.WebGLRenderer({ antialias: true,canvas: canvas });
 
-  renderer.setClearColor(new THREE.Color('#c1c1c1'))
+  renderer.setClearColor(new THREE.Color('#c1c1c1'));
 
   const scene = new THREE.Scene();
 
-  const meshesClone = [...meshes]
+  const meshesClone = [...meshes];
   for(let y=2; y>=-2; y--) {
     for (let x= -2; x<=2; x++) {
-      const m = meshesClone.shift()
+      const m = meshesClone.shift();
       if(m) {
         m.position.x = x * 40;
         m.position.y = y * 25;
-        scene.add(m)
+        scene.add(m);
       }
     }
   }
 
   {
     const light = new THREE.DirectionalLight(0xffffff); 
-    light.intensity = 3
-    light.position.set(15, 5, 30)
+    light.intensity = 3;
+    light.position.set(15, 5, 30);
     scene.add(light);
   }
 
   {
     const light = new THREE.DirectionalLight(0xffffff);
-    light.intensity = 3
-    light.position.set(-15, -5, -30)
+    light.intensity = 3;
+    light.position.set(-15, -5, -30);
     scene.add(light);
   }
   
 
-  canvas.clientWidth/canvas.clientHeight
+  canvas.clientWidth/canvas.clientHeight;
   const camera = new THREE.PerspectiveCamera(45, canvas.clientWidth/canvas.clientHeight, 1, 1000);
   camera.position.set(0, 0, 150);
   camera.lookAt(0, 0, 0);
@@ -129,5 +129,5 @@ mesh 在 threejs 中代表网格对象，是 geometry 和 material 的结合体�
       return needResize;
   }
 
-  requestAnimationFrame(render)
+  requestAnimationFrame(render);
 </script>
