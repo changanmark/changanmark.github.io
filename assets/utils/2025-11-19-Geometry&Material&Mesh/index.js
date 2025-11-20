@@ -18,7 +18,6 @@ function createMaterial() {
   return material;
 }
 
-// BoxGeometry & SolidMaterial
 {
   const width = 10;
   const height = 10;
@@ -27,7 +26,6 @@ function createMaterial() {
   meshes.push(new THREE.Mesh(geometry, createMaterial()));
 }
 
-// CircleGeometry & SolidMaterial
 {
   const radius = 5;
   const segments = 32;

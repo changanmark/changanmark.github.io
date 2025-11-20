@@ -20,8 +20,6 @@ BufferGeometry类似于一个 Map 容器，通过属性 position,index,normal,uv
 其中顶点位置属性必须设置 
 ```js
 const geometry = new THREE.BufferGeometry();
-// create a simple square shape. We duplicate the top left and bottom right
-// vertices because each vertex needs to appear once per triangle.
 const vertices = new Float32Array( [
 	-1.0, -1.0,  1.0, // v0
 	 1.0, -1.0,  1.0, // v1
@@ -63,18 +61,13 @@ mesh 在 threejs 中代表网格对象，是 geometry 和 material 的结合体�
 <script type="module">
   import * as THREE from "three";
   import {meshes} from "/assets/utils/2025-11-19-Geometry&Material&Mesh/index.js"
-  // 获取 Canvas
   const canvas = document.getElementById("c");
-  // 创建渲染器
   const renderer = new THREE.WebGLRenderer({ antialias: true,canvas: canvas });
 
-  // 设置背景色
   renderer.setClearColor(new THREE.Color('#c1c1c1'))
 
-  // 创建场景
   const scene = new THREE.Scene();
 
-  // meshes
   const meshesClone = [...meshes]
   for(let y=2; y>=-2; y--) {
     for (let x= -2; x<=2; x++) {
@@ -87,16 +80,15 @@ mesh 在 threejs 中代表网格对象，是 geometry 和 material 的结合体�
     }
   }
 
-  // 创建灯光
   {
-    const light = new THREE.DirectionalLight(0xffffff); // 平行光
+    const light = new THREE.DirectionalLight(0xffffff); 
     light.intensity = 3
     light.position.set(15, 5, 30)
     scene.add(light);
   }
 
   {
-    const light = new THREE.DirectionalLight(0xffffff); // 平行光
+    const light = new THREE.DirectionalLight(0xffffff);
     light.intensity = 3
     light.position.set(-15, -5, -30)
     scene.add(light);
@@ -104,11 +96,8 @@ mesh 在 threejs 中代表网格对象，是 geometry 和 material 的结合体�
   
 
   canvas.clientWidth/canvas.clientHeight
-  // 创建一个相机
   const camera = new THREE.PerspectiveCamera(45, canvas.clientWidth/canvas.clientHeight, 1, 1000);
-  // 设置相机位置
   camera.position.set(0, 0, 150);
-  // 相机镜头方向
   camera.lookAt(0, 0, 0);
   
   function render(time) {
