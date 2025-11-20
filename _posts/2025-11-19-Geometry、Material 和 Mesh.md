@@ -62,7 +62,7 @@ mesh 在 threejs 中代表网格对象，是 geometry 和 material 的结合体�
 
 <script type="module">
   import * as THREE from "three";
-  import {meshes} from "/assets/lib/2025-11-19-Geometry&Material&Mesh/index.js"
+  import {meshes} from "/assets/utils/2025-11-19-Geometry&Material&Mesh/index.js"
   // 获取 Canvas
   const canvas = document.getElementById("c");
   // 创建渲染器
