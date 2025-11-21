@@ -98,7 +98,7 @@ context.refresh();
 这是一种组合的思想，其中`XmlBeanDefinitionReader`是一种`BeanDefinitionReader`,还有其他的`BeanDefinitionReader`，例如：`PropertiesBeanDefinitionReader`可以用于从 properties 文件中加载元数据
 
 ## AnnotationConfigApplicationContext
-注解配置元数据
+注解配置元数据，通过`@Component`,`@Bean`,`@Configuration`等注解
 ```java
 @Component
 public class JpaItemDao {
