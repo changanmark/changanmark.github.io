@@ -8,6 +8,8 @@ math: true
 mermaid: true
 ---
 
+spring-framework 版本 6.2.14
+
 # Spring IOC介绍
 
 ## 依赖自管理的时代
