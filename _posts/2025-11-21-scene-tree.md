@@ -1,7 +1,7 @@
 ---
 title: 场景树
 date: 2025-11-21 00:00:00 +0800 # YYYY-MM-DD HH:MM:SS +/-TTTT 2022-01-01 13:14:15 +0800 只写日期也行；不写秒也行；这样也行 2022-03-09T00:55:42+08:00
-categories: ["编程", "前端"]
+categories: ["编程", "THREEJS"]
 tags: ["three.js"] # TAG names should always be lowercase
 
 media_subpath: "/assets/img/posts/2025-11-21-scene-tree"
