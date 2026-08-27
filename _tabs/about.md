@@ -5,3 +5,5 @@ order: 4
 ---
 
 # 打工赚钱ing...
+
+{% include wechat-follow.html %}
