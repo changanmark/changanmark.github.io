@@ -1,7 +1,7 @@
 ---
 title: "WebGL2 完整教程（附录）：14 个公共模块逐文件审计"
 date: 2026-08-23 09:11:00 +0800
-categories: ["WebGL2"]
+categories: ["编程","WebGL2"]
 tags: ["webgl2", "webgl", "3d-graphics"]
 math: true
 toc: true
