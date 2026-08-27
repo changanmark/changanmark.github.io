@@ -10,11 +10,7 @@ math: true
 mermaid: true
 ---
 
-<canvas id="c" style="display: block;width: 100%; height: 500px"></canvas>
-
-<script type="module" src="/assets/utils/2025-11-21-scene-tree/index.js">
-
-</script>
+{% include typescript-demo.html slug="scene-tree" title="Three.js 场景树在线示例" height="520" %}
 
 ## 数据结构 Object3D
 Object3D 是 threejs 中的一个树结构类，其中.parent属性指代当前节点的父节点，children 指代当前节点的所有子节点。
@@ -74,4 +70,3 @@ Object3D 提供了针对场景树的搜索函数，如下所示：
 // 将给定的向量从该 3D 对象的局部空间转换为世界空间。
 .localToWorld( vector : Vector3 ) : Vector3
 ```
-

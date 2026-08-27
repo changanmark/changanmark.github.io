@@ -49,6 +49,9 @@ read_baseurl() {
 }
 
 main() {
+  # build TypeScript examples
+  npm run build:examples
+
   # clean up
   if [[ -d $SITE_DIR ]]; then
     rm -rf "$SITE_DIR"

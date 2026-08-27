@@ -50,6 +50,28 @@ media_subpath: "/assets/img/posts/年-月-日-英文标题"
 
 ## 4. 本地预览
 
+首次维护 TypeScript 示例需要 Node.js 20.19 或更高版本，并安装依赖：
+
+```bash
+npm install
+```
+
+三个独立工程位于 `projects` 目录，可以分别启动：
+
+```bash
+npm run dev:geometry
+npm run dev:scene-tree
+npm run dev:material
+```
+
+发布前生成全部在线示例：
+
+```bash
+npm run build:examples
+```
+
+然后预览博客：
+
 ```bash
 PATH=/Users/liuhongfei/.rubies/ruby-3.4.1/bin:$PATH \
 bundle exec jekyll serve --livereload

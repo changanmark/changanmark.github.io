@@ -1,7 +1,16 @@
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.181.1/build/three.module.js';
+import * as THREE from 'three';
+import './style.css';
 
-const canvas = document.getElementById('c');
-const renderer = new THREE.WebGLRenderer({ antialias: true, canvas: canvas });
+function getCanvas(): HTMLCanvasElement {
+  const element = document.querySelector<HTMLCanvasElement>('#app');
+  if (!element) {
+    throw new Error('Canvas element #app was not found.');
+  }
+  return element;
+}
+
+const canvas = getCanvas();
+const renderer = new THREE.WebGLRenderer({ antialias: true, canvas });
 
 renderer.setClearColor(new THREE.Color('#222222'));
 
@@ -11,7 +20,7 @@ axes.material.depthTest = false;
 axes.renderOrder = 1;
 scene.add(axes);
 
-const meshes = [];
+const meshes: THREE.Object3D[] = [];
 
 {
   const radius = 5;
@@ -92,7 +101,7 @@ const camera = new THREE.PerspectiveCamera(
 camera.position.set(0, 0, 150);
 camera.lookAt(0, 0, 0);
 
-function render(time) {
+function render(time: number): void {
   if (resizeRendererToDisplaySize()) {
     camera.aspect = canvas.clientWidth / canvas.clientHeight;
     camera.updateProjectionMatrix();
@@ -109,9 +118,10 @@ function render(time) {
   requestAnimationFrame(render);
 }
 
-function resizeRendererToDisplaySize() {
-  const width = canvas.clientWidth * window.devicePixelRatio;
-  const height = canvas.clientHeight * window.devicePixelRatio;
+function resizeRendererToDisplaySize(): boolean {
+  const pixelRatio = Math.min(window.devicePixelRatio, 2);
+  const width = Math.floor(canvas.clientWidth * pixelRatio);
+  const height = Math.floor(canvas.clientHeight * pixelRatio);
   const needResize = canvas.width !== width || canvas.height !== height;
   if (needResize) {
     renderer.setSize(width, height, false);

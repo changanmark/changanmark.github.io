@@ -208,10 +208,12 @@ exclude:
   - "*.gem"
   - "*.gemspec"
   - docs
+  - projects
   - tools
   - README.md
   - LICENSE
   - purgecss.js
+  - package-lock.json
   - "*.config.js"
   - "package*.json"
 

@@ -1,9 +1,9 @@
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.181.1/build/three.module.js';
-import { ParametricGeometry } from 'https://cdn.jsdelivr.net/npm/three@0.181.1/examples/jsm/geometries/ParametricGeometry.js';
-import { FontLoader } from 'https://cdn.jsdelivr.net/npm/three@0.181.1/examples/jsm/loaders/FontLoader.js';
-import { TextGeometry } from 'https://cdn.jsdelivr.net/npm/three@0.181.1/examples/jsm/geometries/TextGeometry.js';
+import * as THREE from 'three';
+import { ParametricGeometry } from 'three/addons/geometries/ParametricGeometry.js';
+import { FontLoader } from 'three/addons/loaders/FontLoader.js';
+import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
 
-const meshes = [];
+const meshes: THREE.Object3D[] = [];
 
 function createMaterial() {
   const material = new THREE.MeshPhongMaterial({
@@ -127,7 +127,7 @@ function createMaterial() {
     THE SOFTWARE.
 
     */
-  function klein(v, u, target) {
+  function klein(v: number, u: number, target: THREE.Vector3): void {
     u *= Math.PI;
     v *= 2 * Math.PI;
     u = u * 2;
@@ -286,12 +286,15 @@ function createMaterial() {
 }
 
 {
-  class CustomSinCurve extends THREE.Curve {
-    constructor(scale) {
+  class CustomSinCurve extends THREE.Curve<THREE.Vector3> {
+    private readonly scale: number;
+
+    constructor(scale: number) {
       super();
       this.scale = scale;
     }
-    getPoint(t) {
+
+    getPoint(t: number): THREE.Vector3 {
       const tx = t * 3 - 1.5;
       const ty = Math.sin(2 * Math.PI * t);
       const tz = 0;

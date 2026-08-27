@@ -1,0 +1,30 @@
+{% assign demo_path = '/examples/' | append: include.slug | append: '/' %}
+{% assign source_path = 'https://github.com/changanmark/changanmark.github.io/tree/main/projects/' | append: include.slug %}
+
+<div class="typescript-demo__links">
+  <a href="{{ demo_path | relative_url }}" target="_blank" rel="noopener">在新窗口打开示例</a>
+  <span aria-hidden="true">·</span>
+  <a href="{{ source_path }}" target="_blank" rel="noopener">查看 TypeScript 源码</a>
+</div>
+
+<iframe
+  class="typescript-demo__frame"
+  src="{{ demo_path | relative_url }}"
+  title="{{ include.title }}"
+  height="{{ include.height | default: 520 }}"
+  loading="lazy"
+></iframe>
+
+<style>
+  .typescript-demo__links {
+    margin: 0.75rem 0;
+  }
+
+  .typescript-demo__frame {
+    display: block;
+    width: 100%;
+    border: 1px solid var(--main-border-color);
+    border-radius: 0.75rem;
+    background: #111827;
+  }
+</style>
