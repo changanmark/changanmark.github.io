@@ -6,10 +6,7 @@
   ],
   "scripts": {
     "build:examples": "npm run build --workspaces --if-present",
-    "typecheck": "npm run typecheck --workspaces --if-present",
-    "dev:geometry": "npm run dev --workspace @examples/geometry-material-mesh",
-    "dev:scene-tree": "npm run dev --workspace @examples/scene-tree",
-    "dev:material": "npm run dev --workspace @examples/material"
+    "typecheck": "npm run typecheck --workspaces --if-present"
   },
   "engines": {
     "node": ">=20.19.0"
