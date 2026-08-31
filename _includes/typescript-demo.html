@@ -9,11 +9,38 @@
 
 <iframe
   class="typescript-demo__frame"
-  src="{{ demo_path | relative_url }}"
+  data-src="{{ demo_path | relative_url }}"
   title="{{ include.title }}"
   height="{{ include.height | default: 520 }}"
   loading="lazy"
 ></iframe>
+
+<script>
+  (() => {
+    const frame = document.currentScript.previousElementSibling;
+    const loadDemo = () => {
+      if (frame && frame.dataset.src && !frame.hasAttribute('src')) {
+        frame.src = frame.dataset.src;
+      }
+    };
+
+    const fallback = setTimeout(loadDemo, 1500);
+
+    if (document.readyState === 'complete') {
+      clearTimeout(fallback);
+      setTimeout(loadDemo, 0);
+    } else {
+      window.addEventListener(
+        'load',
+        () => {
+          clearTimeout(fallback);
+          loadDemo();
+        },
+        { once: true }
+      );
+    }
+  })();
+</script>
 
 <style>
   .typescript-demo__links {

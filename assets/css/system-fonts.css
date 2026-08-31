@@ -1,0 +1,9 @@
+/* Use installed system fonts so first paint never waits for Google Fonts. */
+:root {
+  --bs-body-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+}
+
+body {
+  font-family: var(--bs-body-font-family);
+}
